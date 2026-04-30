@@ -1,0 +1,291 @@
+{
+  "run_id": "run-1777520182905",
+  "job_index": 3,
+  "params": {
+    "owner_user_id": "user-1774822953462",
+    "owner_username": "admin",
+    "owner_display_name": "Administrator",
+    "count": 3,
+    "archetype": "tool",
+    "market": "France",
+    "language": "fr",
+    "country": "FR",
+    "brief": "Un outil pour galeries, collectionneurs et artistes afin de modéliser les réactions du marché à des variation…",
+    "notes": "Évaluez l'impact potentiel de différentes stratégies de prix sur la demande et la revenus pour des œuvres d'art uniques ou des collections limitées.\nCible le marché de l'art, les maisons de vente aux enchères, les galeries. Une esthétique premium et sobre. Thème 'Opulence Era' pour son luxe discret et son raffinement.",
+    "import_notes": "",
+    "growth_job_id": "",
+    "growth_slug": "",
+    "growth_kind": "",
+    "dashboard_mode": "builder",
+    "network_site_format": "forum",
+    "network_primary_topic": "",
+    "network_primary_geo": "",
+    "network_domain_pool": "forum-de-jeu.shop",
+    "network_hosting_pool": "4vps:netoper | server_id=447345 | ip=5.253.59.18 | ssh_user=root | ssh_port=22",
+    "network_dns_strategy": "auto_pool_assign",
+    "network_domain_flow": "manual",
+    "network_content_strategy": "",
+    "network_model_concept": "google/gemini-2.5-flash-lite:nitro",
+    "network_model_seo": "google/gemini-2.5-flash-lite:nitro",
+    "network_model_build": "google/gemini-2.5-flash",
+    "network_model_qa": "anthropic/claude-haiku-4.5",
+    "network_model_growth": "google/gemini-2.5-flash-lite:nitro",
+    "network_blueprint_id": "",
+    "mode": "production",
+    "run_kind": "generated_batch",
+    "publish_target": "render",
+    "requested_publish_target": "render",
+    "railway_project_id_override": "",
+    "railway_environment_id_override": "",
+    "railway_service_id_override": "",
+    "railway_service_name_override": "",
+    "github_repo_private": true,
+    "stage_models": {
+      "ideation": "google/gemini-2.5-flash-lite:nitro",
+      "spec": "google/gemini-2.5-flash",
+      "copy": "google/gemini-2.5-flash-lite:nitro",
+      "qa": "anthropic/claude-haiku-4.5",
+      "escalation": "anthropic/claude-sonnet-4.6"
+    },
+    "archetype_display": "mixed batch",
+    "archetype_mix": [
+      "generator",
+      "calculator",
+      "tool"
+    ],
+    "forced_design_theme": "opulence-era",
+    "forced_structure_preset": "precision-bento",
+    "site_idea_title": "Outil d'Analyse de Sensibilité des Prix pour Collections d'Art",
+    "site_idea_summary": "Évaluez l'impact potentiel de différentes stratégies de prix sur la demande et la revenus pour des œuvres d'art uniques ou des collections limitées."
+  },
+  "site_spec": {
+    "slug": "outil-d-analyse-de-sensibilite-des-prix-pour-co-80b44a5d",
+    "theme": {
+      "name": "Opulence Era",
+      "slug": "opulence-era",
+      "eyebrow": "Quiet Luxury Utility",
+      "family": "opulence-era",
+      "moods": [
+        "luxury",
+        "minimal",
+        "refined",
+        "calm"
+      ],
+      "archetypes": [
+        "calculator",
+        "generator",
+        "tool"
+      ],
+      "niches": [
+        "concierge services",
+        "finance",
+        "property",
+        "high-end consulting",
+        "travel tools"
+      ],
+      "keywords": [
+        "luxury",
+        "quiet",
+        "marble",
+        "refined",
+        "premium"
+      ],
+      "token_index": [
+        "calculator",
+        "calm",
+        "concierge",
+        "consulting",
+        "end",
+        "era",
+        "finance",
+        "generator",
+        "high",
+        "luxury",
+        "marble",
+        "minimal",
+        "opulence",
+        "premium",
+        "property",
+        "quiet",
+        "refined",
+        "services",
+        "tool",
+        "tools",
+        "travel",
+        "utility"
+      ],
+      "font_embed": "https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&display=swap",
+      "display_font": "\"Playfair Display\", sans-serif",
+      "body_font": "\"Manrope\", sans-serif",
+      "layout": "editorial",
+      "card_style": "glass",
+      "button_style": "outline",
+      "decor_style": "ribbons",
+      "hero_template": "1fr",
+      "seo_template": "1fr",
+      "feature_columns": 2,
+      "faq_columns": 2,
+      "hero_min_height": "70vh",
+      "panel_radius": "28px",
+      "card_radius": "26px",
+      "chip_radius": "999px",
+      "button_radius": "18px",
+      "outline_width": "1px",
+      "backdrop_blur": "16px",
+      "palette": {
+        "bg": "linear-gradient(160deg, #fbf7f0 0%, #f1e7d8 52%, #e9d5ff 100%)",
+        "surface": "rgba(255,252,247,0.9)",
+        "surface_border": "rgba(35,24,21,0.1)",
+        "text": "#231815",
+        "muted": "#6b5f57",
+        "accent": "#b45309",
+        "accent_alt": "#7c3aed",
+        "hero_glow": "rgba(180, 83, 9, 0.14)",
+        "button_text": "#fffaf5",
+        "panel_alt": "rgba(255,255,255,0.6)",
+        "shadow": "0 26px 70px rgba(64, 40, 24, 0.11)",
+        "input_fill": "rgba(255,255,255,0.5)"
+      }
+    },
+    "structure": {
+      "name": "Precision Bento",
+      "slug": "precision-bento",
+      "hero_variant": "split",
+      "proof_variant": "metrics",
+      "section_order": [
+        "features",
+        "proof",
+        "seo",
+        "faq"
+      ],
+      "feature_columns": 4,
+      "faq_columns": 3,
+      "family": "precision-bento",
+      "moods": [
+        "clean",
+        "modular",
+        "premium"
+      ],
+      "archetypes": [
+        "tool",
+        "calculator",
+        "generator"
+      ],
+      "niches": [
+        "saas",
+        "admin",
+        "compliance",
+        "analysis"
+      ],
+      "keywords": [
+        "bento",
+        "precision",
+        "cards",
+        "operator"
+      ],
+      "token_index": [
+        "admin",
+        "analysis",
+        "bento",
+        "calculator",
+        "cards",
+        "clean",
+        "compliance",
+        "faq",
+        "features",
+        "generator",
+        "metrics",
+        "modular",
+        "operator",
+        "precision",
+        "premium",
+        "proof",
+        "saas",
+        "seo",
+        "split",
+        "tool"
+      ]
+    },
+    "render_direction": "signal-bento",
+    "render_direction_name": "Signal Bento",
+    "page_blueprint": "briefing-board",
+    "page_blueprint_name": "Briefing Board",
+    "title": "Outil d'Analyse de Sensibilité des Prix pour Collections d'Art",
+    "tagline": "Simulez Votre Stratégie",
+    "description": "Évaluez l",
+    "feature_prefix": "Bloc",
+    "action": "Utiliser l'outil",
+    "cta_primary": "Analyser l'Impact",
+    "cta_secondary": "Consulter la FAQ",
+    "inputs": [
+      {
+        "id": "primary",
+        "label": "Texte ou besoin",
+        "type": "text",
+        "placeholder": "Votre besoin principal",
+        "weight": 1.0
+      },
+      {
+        "id": "context",
+        "label": "Contexte",
+        "type": "text",
+        "placeholder": "Situation ou objectif",
+        "weight": 1.0
+      },
+      {
+        "id": "scope",
+        "label": "Intensité",
+        "type": "number",
+        "placeholder": "3",
+        "weight": 0.3
+      }
+    ],
+    "hero_metrics": [
+      {
+        "value": "Signal Bento",
+        "label": "Cadence"
+      },
+      {
+        "value": "3",
+        "label": "Entrées"
+      },
+      {
+        "value": "Résultat recommandé",
+        "label": "Sortie"
+      }
+    ],
+    "trust_labels": [
+      "Signal Bento",
+      "Analyser l'Impact",
+      "Résultat recommandé",
+      "Utilitaire immédiat",
+      "Structure SEO claire"
+    ],
+    "result_label": "Résultat recommandé",
+    "result_unit": "",
+    "runtime_mode": "analysis_tool",
+    "page_variant": "console",
+    "faq_topic": "Outil d'Analyse de Sensibilité des Prix pour Collections d'Art",
+    "faq_entries": [
+      {
+        "question": "Pourquoi utiliser cet outil pour Outil d'Analyse de Sensibilité des Prix pour Collections d'Art ?",
+        "answer": "Il aide à cadrer le besoin rapidement et à orienter vers une prochaine action claire sur le marché France."
+      },
+      {
+        "question": "Le résultat est-il immédiat ?",
+        "answer": "Oui. L'interface est pensée pour une réponse rapide, lisible et exploitable dès la première interaction."
+      },
+      {
+        "question": "Cette page est-elle adaptée au SEO ?",
+        "answer": "Oui. La structure mélange utilité, clarté éditoriale et signaux de confiance sans surcharger l'expérience."
+      }
+    ],
+    "seo_paragraphs": [
+      "Cette page capte une intention forte autour de Outil d'Analyse de Sensibilité des Prix pour Collections d'Art et la transforme en action utile pour un public situé sur France.",
+      "Le format hero-first accélère la compréhension, réduit les frictions et améliore la lisibilité sur mobile comme sur desktop.",
+      "Le socle reste volontairement simple pour faciliter les tests, la QA continue et les variations SEO."
+    ],
+    "document_html": "<!DOCTYPE html>\n<html lang=\"fr\">\n<head>\n    <meta charset=\"UTF-8\">\n    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">\n    <title>Outil d&#x27;Analyse de Sensibilité des Prix pour Collections d&#x27;Art | Simulez Votre Stratégie</title>\n    <meta name=\"description\" content=\"Évaluez l\">\n    <style>\n        :root {\n            --color-text: #2c2c2e;\n            --color-background: #f9f9f9;\n            --color-primary: #a87e5b;\n            --color-secondary: #e8e8e8;\n            --color-accent: #6f513d;\n            --font-family-serif: 'Georgia', serif;\n            --font-family-sans: 'Helvetica Neue', sans-serif;\n            --spacing-unit: 1rem;\n        }\n\n        body {\n            font-family: var(--font-family-sans);\n            color: var(--color-text);\n            background: linear-gradient(135deg, var(--color-background) 0%, #ffffff 100%);\n            margin: 0;\n            padding: 0;\n            line-height: 1.6;\n            display: flex;\n            flex-direction: column;\n            align-items: center;\n        }\n\n        .container {\n            width: 100%;\n            max-width: 1200px;\n            padding: calc(2 * var(--spacing-unit));\n            box-sizing: border-box;\n        }\n\n        header {\n            text-align: center;\n            padding: calc(4 * var(--spacing-unit)) 0;\n            position: relative;\n            z-index: 1;\n        }\n\n        h1 {\n            font-family: var(--font-family-serif);\n            font-size: 3.5rem;\n            color: var(--color-primary);\n            margin-bottom: var(--spacing-unit);\n            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);\n            line-height: 1.1;\n        }\n\n        header p {\n            font-size: 1.25rem;\n            max-width: 800px;\n            margin: 0 auto;\n            color: var(--color-accent);\n        }\n\n        .tool-section {\n            background-color: #ffffff;\n            border-radius: 12px;\n            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);\n            padding: calc(3 * var(--spacing-unit));\n            margin-top: calc(3 * var(--spacing-unit));\n            display: grid;\n            grid-template-columns: 1fr;\n            gap: calc(2 * var(--spacing-unit));\n        }\n\n        @media (min-width: 768px) {\n            .tool-section {\n                grid-template-columns: 1fr 1.5fr;\n            }\n        }\n\n        .input-group label {\n            display: block;\n            margin-bottom: 0.5rem;\n            font-weight: bold;\n            color: var(--color-text);\n        }\n\n        .input-group input[type=\"number\"],\n        .input-group select {\n            width: 100%;\n            padding: 0.8rem;\n            border: 1px solid var(--color-secondary);\n            border-radius: 8px;\n            font-size: 1rem;\n            box-sizing: border-box;\n            transition: border-color 0.3s;\n        }\n\n        .input-group input[type=\"number\"]:focus,\n        .input-group select:focus {\n            outline: none;\n            border-color: var(--color-primary);\n            box-shadow: 0 0 0 2px rgba(168, 126, 91, 0.2);\n        }\n\n        button#tool-submit {\n            background-color: var(--color-primary);\n            color: white;\n            padding: 1rem 2rem;\n            border: none;\n            border-radius: 8px;\n            font-size: 1.1rem;\n            cursor: pointer;\n            transition: background-color 0.3s ease, transform 0.2s ease;\n            width: 100%;\n            margin-top: calc(1.5 * var(--spacing-unit));\n            box-shadow: 0 4px 15px rgba(168, 126, 91, 0.3);\n        }\n\n        button#tool-submit:hover {\n            background-color: var(--color-accent);\n            transform: translateY(-2px);\n        }\n\n        #tool-result {\n            background-color: var(--color-background);\n            border-radius: 8px;\n            padding: calc(1.5 * var(--spacing-unit));\n            min-height: 200px;\n            display: flex;\n            flex-direction: column;\n            justify-content: center;\n            align-items: flex-start;\n            border: 1px solid var(--color-secondary);\n            overflow-x: auto;\n        }\n        #tool-result h3 {\n            color: var(--color-primary);\n            margin-top: 0;\n            margin-bottom: 1rem;\n            font-family: var(--font-family-serif);\n            font-size: 1.5rem;\n        }\n        #tool-result p {\n            margin-bottom: 0.5rem;\n            font-size: 1rem;\n        }\n        #tool-result strong {\n            color: var(--color-accent);\n        }\n        .section-title {\n            text-align: center;\n            font-family: var(--font-family-serif);\n            font-size: 2.2rem;\n            color: var(--color-primary);\n            margin-top: calc(4 * var(--spacing-unit));\n            margin-bottom: calc(2 * var(--spacing-unit));\n        }\n\n        .headline-variants {\n            display: grid;\n            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));\n            gap: calc(1.5 * var(--spacing-unit));\n            margin-top: calc(3 * var(--spacing-unit));\n        }\n\n        .variant-card {\n            background-color: #ffffff;\n            border-radius: 10px;\n            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);\n            padding: calc(1.5 * var(--spacing-unit));\n            transition: transform 0.3s ease, box-shadow 0.3s ease;\n        }\n\n        .variant-card:hover {\n            transform: translateY(-5px);\n            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);\n        }\n\n        .variant-card h4 {\n            font-family: var(--font-family-serif);\n            color: var(--color-accent);\n            margin-top: 0;\n            margin-bottom: var(--spacing-unit);\n            font-size: 1.3rem;\n        }\n\n        .variant-card ul {\n            list-style: none;\n            padding: 0;\n            margin: 0;\n        }\n\n        .variant-card li {\n            margin-bottom: 0.75rem;\n            color: var(--color-text);\n            font-size: 0.95rem;\n        }\n        .cta-section {\n            text-align: center;\n            margin-top: calc(4 * var(--spacing-unit));\n            padding: calc(3 * var(--spacing-unit));\n            background: linear-gradient(45deg, #f0e8e0, #f8f0e8);\n            border-radius: 12px;\n            box-shadow: 0 8px 25px rgba(0,0,0,0.06);\n        }\n        .cta-section h3 {\n            font-family: var(--font-family-serif);\n            font-size: 2rem;\n            color: var(--color-primary);\n            margin-bottom: var(--spacing-unit);\n        }\n        .cta-section p {\n            font-size: 1.1rem;\n            color: var(--color-text);\n            max-width: 700px;\n            margin: 0 auto calc(2 * var(--spacing-unit)) auto;\n        }\n        .cta-button {\n            background-color: var(--color-accent);\n            color: white;\n            padding: 1rem 2.5rem;\n            border: none;\n            border-radius: 8px;\n            font-size: 1.15rem;\n            cursor: pointer;\n            transition: background-color 0.3s ease, transform 0.2s ease;\n            box-shadow: 0 4px 15px rgba(111, 81, 61, 0.3);\n            text-decoration: none;\n            display: inline-block;\n        }\n        .cta-button:hover {\n            background-color: #5a4232;\n            transform: translateY(-2px);\n        }\n\n        .seo-section {\n            background-color: #f0f0f0;\n            padding: calc(3 * var(--spacing-unit));\n            margin-top: calc(5 * var(--spacing-unit));\n            border-radius: 12px;\n            color: #555;\n            font-size: 0.9rem;\n            line-height: 1.8;\n            border-top: 1px solid var(--color-secondary);\n        }\n        .seo-section h3 {\n            font-family: var(--font-family-sans);\n            font-size: 1.4rem;\n            color: var(--color-text);\n            margin-bottom: var(--spacing-unit);\n        }\n        .seo-section a {\n            color: var(--color-accent);\n            text-decoration: none;\n        }\n        .seo-section a:hover {\n            text-decoration: underline;\n        }\n    </style>\n    <meta name=\"robots\" content=\"index, follow\">\n    <link rel=\"canonical\" href=\"https://outil-d-analyse-de-sensibilite-des-prix-pour-co-80b44a5d.onrender.com\">\n    <meta property=\"og:title\" content=\"Outil d&#x27;Analyse de Sensibilité des Prix pour Collections d&#x27;Art\">\n    <meta property=\"og:description\" content=\"Évaluez l\">\n    <meta property=\"og:url\" content=\"https://outil-d-analyse-de-sensibilite-des-prix-pour-co-80b44a5d.onrender.com\">\n    <meta property=\"og:type\" content=\"website\">\n    <script type=\"application/ld+json\">{\"@context\": \"https://schema.org\", \"@type\": \"WebApplication\", \"name\": \"Outil d'Analyse de Sensibilité des Prix pour Collections d'Art\", \"description\": \"Évaluez l\", \"url\": \"https://outil-d-analyse-de-sensibilite-des-prix-pour-co-80b44a5d.onrender.com\", \"applicationCategory\": \"UtilityApplication\", \"operatingSystem\": \"Web Browser\"}</script>\n</head>\n<body data-site-slug=\"outil-d-analyse-de-sensibilite-des-prix-pour-co-80b44a5d\" data-runtime-mode=\"analysis_tool\">\n    <div class=\"container\">\n        <header>\n            <h1>Optimisation Stratégique des Prix pour l'Art</h1>\n            <p>Découvrez la dynamique du marché pour vos œuvres uniques et collections limitées. Notre outil modélise l'impact des variations de prix sur la demande et vos revenus.</p>\n        </header>\n\n        <section class=\"tool-section\">\n            <form id=\"tool-form\">\n                <h2>Simulez Votre Stratégie</h2>\n                <div class=\"input-group\">\n                    <label for=\"prixActuel\">Prix Actuel de l'Œuvre (€)</label>\n                    <input type=\"number\" id=\"prixActuel\" value=\"10000\" min=\"100\" required>\n                </div>\n                <div class=\"input-group\">\n                    <label for=\"quantiteVendue\">Quantité Vendue à ce Prix</label>\n                    <input type=\"number\" id=\"quantiteVendue\" value=\"5\" min=\"1\" required>\n                </div>\n                <div class=\"input-group\">\n                    <label for=\"elasticiteDemande\">Élasticité de la Demande</label>\n                    <select id=\"elasticiteDemande\">\n                        <option value=\"-0.5\">Faible (-0.5)</option>\n                        <option value=\"-1.0\" selected>Modérée (-1.0)</option>\n                        <option value=\"-2.0\">Élevée (-2.0)</option>\n                        <option value=\"-0.2\">Très Faible (-0.2)</option>\n                        <option value=\"-3.0\">Très Élevée (-3.0)</option>\n                    </select>\n                </div>\n                <div class=\"input-group\">\n                    <label for=\"variationPrix\">Variation de Prix à Simuler (%)</label>\n                    <input type=\"number\" id=\"variationPrix\" value=\"10\" min=\"-90\" max=\"200\" required>\n                </div>\n                <button type=\"submit\" id=\"tool-submit\">Analyser l'Impact</button>\n            </form>\n\n            <div id=\"tool-result\">\n                <h3 id=\"result-headline\">Résultats de la Simulation</h3>\n                <p>Modélisation en attente de vos paramètres. Entrez les données de votre œuvre pour évaluer les dynamiques de marché potentielles.</p>\n            </div>\n        </section>\n\n        <section class=\"cta-section\">\n            <h3>Une vision claire pour vos collections.</h3>\n            <p>Notre expertise vous accompagne au-delà des chiffres. Contactez nos spécialistes pour une analyse approfondie et des recommandations sur mesure pour votre marché spécifique.</p>\n            <a href=\"#\" class=\"cta-button\" data-affiliate-slot=\"contact-specialist\">Demander un diagnostic personnalisé</a>\n        </section>\n\n        <section class=\"headline-variants\">\n            <h2 class=\"section-title\">Idées de Titres percutants</h2>\n            <div class=\"variant-card\">\n                <h4>SEO & Référencement</h4>\n                <ul>\n                    <li>Analyse Sensibilité Prix Art: Optimiser Vos Ventes en Galerie</li>\n                    <li>Outil Simulation Prix Collections d'Art: Maximiser Vos Revenus</li>\n                    <li>Stratégie Prix Œuvres Uniques: Évaluation Impact Demande</li>\n                    <li>Conseils Prix Marché de l'Art: Galeries & Maisons de Vente</li>\n                    <li>Comment Fixer le Prix d'une Œuvre d'Art: Guide Pratique</li>\n                </ul>\n            </div>\n            <div class=\"variant-card\">\n                <h4>Clickbait & Intrigue</h4>\n                <ul>\n                    <li>Le Secret pour Multiplier la Valeur de Votre Collection d'Art ?</li>\n                    <li>Votre Stratégie de Prix vous Fait-elle Perdre Gros ? Découvrez-le !</li>\n                    <li>Révélé : L'Erreur de Prix que Tous les Collectionneurs Font !</li>\n                    <li>Et si une Simple Modification Révolutionnait Vos Ventes d'Art ?</li>\n                    <li>Ce Calcul Simple Peut Doubler Vos Gains sur le Marché de l'Art !</li>\n                </ul>\n            </div>\n            <div class=\"variant-card\">\n                <h4>Expert & Autorité</h4>\n                <ul>\n                    <li>Modélisation Économétrique des Prix de l'Art: Une Approche Fine</li>\n                    <li>Optimisation des Revenus en Galerie : Analyse de l'Élasticité Prix</li>\n                    <li>Déterminer le Point d'Équilibre Optimal pour Vos Œuvres Rares</li>\n                    <li>Prospective des Prix du Marché de l'Art : Outil Décisionnel</li>\n                    <li>Les Fondamentaux d'une Politique Tarifaire Réussie pour l'Art</li>\n                </ul>\n            </div>\n            <div class=\"variant-card\">\n                <h4>Soft & Accompagnant</h4>\n                <ul>\n                    <li>Trouvez le Juste Prix pour Vos Trésors Artistiques</li>\n                    <li>Affinez Votre Stratégie de Prix avec Confiance et Précision</li>\n                    <li>Comprendre l'Influence du Prix sur l'Attrait de Vos Œuvres</li>\n                    <li>Un Guide Doux pour Évaluer Vos Collections en Toute Sérénité</li>\n                    <li>Harmonisez Prix et Demande : L'Art de la Valorisation</li>\n                </ul>\n            </div>\n            <div class=\"variant-card\">\n                <h4>Commercial & Incitatif</h4>\n                <ul>\n                    <li>Augmentez Vos Marges : Notre Outil Révèle Votre Potentiel de Prix</li>\n                    <li>Vendez Plus, Vendez Mieux : Simulez l'Impact de Vos Prix</li>\n                    <li>Maxime la Rentabilité de Chaque Œuvre avec Notre Simulateur</li>\n                    <li>Déverrouillez le Potentiel Commercial de Votre Art dès Aujourd'hui</li>\n                    <li>Transformez Vos Prix en Levier de Croissance : Essayez Notre Outil</li>\n                </ul>\n            </div>\n        </section>\n\n        <section class=\"seo-section\">\n            <h3>Optimisation des Prix dans le Marché de l'Art : Guide pour Galeries et Collectionneurs</h3>\n            <p>Naviguer dans les complexités du marché de l'art exige une compréhension approfondie de la <a href=\"#\">stratégie de prix</a>. Que vous soyez une <a href=\"#\">galerie d'art</a> cherchant à maximiser les ventes, une <a href=\"#\">maison de vente aux enchères</a> planifiant une nouvelle collection, ou un <a href=\"#\">collectionneur d'art</a> souhaitant valoriser au mieux ses actifs, la détermination du prix est cruciale. Notre <a href=\"#\">outil d'analyse de sensibilité des prix</a> est conçu spécifiquement pour le secteur de l'art, vous permettant d'évaluer l'impact des <a href=\"#\">variations de prix</a> sur la <a href=\"#\">demande</a> et les <a href=\"#\">revenus</a>. Comprendre l'élasticité de la demande pour des <a href=\"#\">œuvres d'art uniques</a> ou des <a href=\"#\">collections limitées</a> n'a jamais été aussi accessible. Utilisez notre simulateur pour modéliser des scénarios, affiner votre <a href=\"#\">politique tarifaire</a> et prendre des décisions éclairées pour <a href=\"#\">optimiser vos revenus artistiques</a>. De la <a href=\"#\">fixation du prix d'une œuvre</a> à la <a href=\"#\">valorisation de collections</a> entières, cet outil offre une perspective précieuse pour les professionnels du marché de l'art français.</p>\n        </section>\n    </div>\n\n    <script>\n        document.getElementById('tool-form').addEventListener('submit', function(e) {\n            e.preventDefault();\n\n            const prixActuel = parseFloat(document.getElementById('prixActuel').value);\n            const quantiteVendue = parseFloat(document.getElementById('quantiteVendue').value);\n            const elasticiteDemande = parseFloat(document.getElementById('elasticiteDemande').value);\n            const variationPrixPourcentage = parseFloat(document.getElementById('variationPrix').value);\n\n            if (isNaN(prixActuel) || isNaN(quantiteVendue) || isNaN(elasticiteDemande) || isNaN(variationPrixPourcentage)) {\n                document.getElementById('tool-result').innerHTML = \"<h3>Erreur</h3><p>Veuillez entrer des valeurs numériques valides pour tous les champs.</p>\";\n                return;\n            }\n\n            const variationPrixDecimale = variationPrixPourcentage / 100;\n            const nouveauPrix = prixActuel * (1 + variationPrixDecimale);\n\n            // Calcul de la variation de la demande en pourcentage\n            // % changement de la demande = Élasticité * % changement du prix\n            const pourcentageChangementDemande = elasticiteDemande * variationPrixDecimale;\n\n            // Nouvelle quantité vendue\n            const nouvelleQuantiteVendue = quantiteVendue * (1 + pourcentageChangementDemande);\n\n            // Calcul des revenus initiaux\n            const revenusActuels = prixActuel * quantiteVendue;\n\n            // Calcul des nouveaux revenus\n            const nouveauxRevenus = nouveauPrix * nouvelleQuantiteVendue;\n\n            let resultHTML = `<h3>Résultats de la Simulation</h3>`;\n            resultHTML += `<p><strong>Prix Actuel :</strong> ${prixActuel.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })}</p>`;\n            resultHTML += `<p><strong>Quantité Vendue Actuelle :</strong> ${quantiteVendue.toFixed(0)} unités</p>`;\n            resultHTML += `<p><strong>Revenus Actuels :</strong> ${revenusActuels.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })}</p>`;\n            resultHTML += `<hr style=\"border: none; border-top: 1px dashed var(--color-secondary); margin: 1rem 0;\">`;\n            resultHTML += `<p><strong>Variation de Prix Appliquée :</strong> ${variationPrixPourcentage.toFixed(1)}%</p>`;\n            resultHTML += `<p><strong>Nouveau Prix de l'Œuvre :</strong> ${nouveauPrix.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })}</p>`;\n            resultHTML += `<p><strong>Changement Est. Demande :</strong> ${Math.round(pourcentageChangementDemande * 100).toLocaleString('fr-FR')}%</p>`;\n            resultHTML += `<p><strong>Nouvelle Quantité Vendue Est. :</strong> ${Math.max(0, nouvelleQuantiteVendue).toFixed(2)} unités</p>`;\n            resultHTML += `<p><strong>Nouveaux Revenus Est. :</strong> ${Math.max(0, nouveauxRevenus).toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })}</p>`;\n\n            const diffRevenus = nouveauxRevenus - revenusActuels;\n            const percentageDiffRevenus = (diffRevenus / revenusActuels) * 100;\n\n            resultHTML += `<hr style=\"border: none; border-top: 1px solid var(--color-primary); margin: 1.5rem 0;\">`;\n            resultHTML += `<p><strong>Impact Net sur les Revenus :</strong> <span style=\"color: ${diffRevenus >= 0 ? 'green' : 'red'}; font-weight: bold;\">${diffRevenus.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })} (${percentageDiffRevenus.toFixed(2)}%)</span></p>`;\n\n            document.getElementById('tool-result').innerHTML = resultHTML;\n        });\n    </script>\n<div id=\"qa-smoke-result\" hidden></div>\n<script id=\"farmbuilder-affiliate-helper\">\n(function () {\n  window.__UTILITY_AFFILIATE_MAP = window.__UTILITY_AFFILIATE_MAP || {};\n  document.addEventListener(\"click\", function (event) {\n    const target = event.target.closest(\"[data-affiliate-slot]\");\n    if (!target) return;\n    const slot = target.getAttribute(\"data-affiliate-slot\");\n    const href = window.__UTILITY_AFFILIATE_MAP[slot];\n    if (!href) return;\n    if (target.tagName && target.tagName.toLowerCase() === \"a\") {\n      target.setAttribute(\"href\", href);\n      target.setAttribute(\"rel\", \"nofollow sponsored noopener noreferrer\");\n      return;\n    }\n    event.preventDefault();\n    window.open(href, \"_blank\", \"noopener\");\n  }, true);\n})();\n</script>\n<script id=\"farmbuilder-functional-qa\">\n(function () {\n  function marker() {\n    let node = document.getElementById(\"qa-smoke-result\");\n    if (node) return node;\n    node = document.createElement(\"div\");\n    node.id = \"qa-smoke-result\";\n    node.hidden = true;\n    document.body.appendChild(node);\n    return node;\n  }\n\n  let qaFinished = false;\n  let qaWatchdog = null;\n\n  function normalize(text) {\n    return String(text || \"\").replace(/\\s+/g, \" \").trim();\n  }\n\n  function findForm() {\n    return document.getElementById(\"tool-form\") || document.querySelector(\"form\");\n  }\n\n  function findResult() {\n    return (\n      document.getElementById(\"tool-result\") ||\n      document.querySelector(\"[data-result]\") ||\n      document.querySelector(\".tool-result, .result-card, .result, .results, .output, .preview, .diagnostic, .analysis\")\n    );\n  }\n\n  function primaryAction(form) {\n    if (!form) return null;\n    return (\n      document.getElementById(\"tool-submit\") ||\n      form.querySelector(\"#tool-submit\") ||\n      form.querySelector(\"[data-primary-action]\") ||\n      form.querySelector(\"button[type=submit]\") ||\n      form.querySelector(\"button\") ||\n      form.querySelector(\"input[type=submit]\")\n    );\n  }\n\n  function resultSignature(node) {\n    if (!node) return \"\";\n    const text = normalize(node.textContent);\n    const html = normalize(node.innerHTML).slice(0, 600);\n    return `${text}||${html}`;\n  }\n\n  function resultHeadline(node) {\n    if (!node) return \"\";\n    const heading = node.querySelector(\"h1, h2, h3, strong, b\");\n    return normalize(heading ? heading.textContent : \"\");\n  }\n\n  function sampleText(field) {\n    const key = `${field.id || \"\"} ${field.name || \"\"} ${field.placeholder || \"\"}`.toLowerCase();\n    if (/email/.test(key)) return \"bonjour@example.com\";\n    if (/url|site|website|lien/.test(key)) return \"https://example.com/offre-solaire\";\n    if (/phone|tel|mobile/.test(key)) return \"0612345678\";\n    if (/ville|city|localisation|location|region|departement|postal/.test(key)) return \"Paris\";\n    if (/orientation/.test(key)) return \"sud\";\n    if (/keyword|theme|topic|sujet|subject/.test(key)) return \"energie solaire domestique\";\n    if (/titre|title/.test(key)) return \"Simulateur solaire maison\";\n    if (/nom|name|project/.test(key)) return \"Projet Horizon\";\n    if (/description|notes|content|message/.test(key)) return \"Maison individuelle exposee sud avec toiture exploitable.\";\n    return field.placeholder || \"France\";\n  }\n\n  function sampleNumber(field) {\n    const key = `${field.id || \"\"} ${field.name || \"\"}`.toLowerCase();\n    if (/inclinaison|angle|slope/.test(key)) return \"30\";\n    if (/surface|size|m2|sqm/.test(key)) return \"28\";\n    if (/annee|year/.test(key)) return \"2024\";\n    if (/prix|price|budget|cost|amount|montant/.test(key)) return \"12000\";\n    const min = Number(field.min || \"\");\n    const max = Number(field.max || \"\");\n    if (Number.isFinite(min) && Number.isFinite(max) && max >= min) {\n      return String(Math.min(max, Math.max(min, min + Math.round((max - min) * 0.35))));\n    }\n    if (Number.isFinite(min)) return String(Math.max(min, 12));\n    if (Number.isFinite(max)) return String(Math.min(max, 12));\n    return field.value || \"12\";\n  }\n\n  function applySample(field) {\n    const tag = (field.tagName || \"\").toLowerCase();\n    const type = (field.type || \"\").toLowerCase();\n    if (field.disabled) return;\n    if (type === \"hidden\" || type === \"submit\" || type === \"button\" || type === \"reset\" || type === \"image\" || type === \"file\") {\n      return;\n    }\n    const currentValue = normalize(field.value);\n    if (tag === \"select\") {\n      if (currentValue) return;\n      const option = Array.from(field.options || []).find((item) => item.value && !item.disabled) || field.options[0];\n      if (option) field.value = option.value;\n      return;\n    }\n    if (type === \"checkbox\") {\n      if (field.checked) return;\n      field.checked = true;\n      return;\n    }\n    if (type === \"radio\") {\n      if (field.checked) return;\n      field.checked = true;\n      return;\n    }\n    if (type === \"date\") {\n      if (currentValue) return;\n      field.value = \"2026-03-01\";\n      return;\n    }\n    if (type === \"email\") {\n      if (currentValue) return;\n      field.value = \"bonjour@example.com\";\n      return;\n    }\n    if (type === \"url\") {\n      if (currentValue) return;\n      field.value = \"https://example.com/offre-solaire\";\n      return;\n    }\n    if (type === \"tel\") {\n      if (currentValue) return;\n      field.value = \"0612345678\";\n      return;\n    }\n    if (type === \"color\") {\n      if (currentValue) return;\n      field.value = \"#2f855a\";\n      return;\n    }\n    if (type === \"number\" || type === \"range\") {\n      if (currentValue) return;\n      field.value = sampleNumber(field);\n      return;\n    }\n    if (currentValue) return;\n    field.value = sampleText(field);\n  }\n\n  function stamp(status, detail, headline, primary) {\n    if (qaFinished) return;\n    qaFinished = true;\n    if (qaWatchdog) {\n      window.clearTimeout(qaWatchdog);\n      qaWatchdog = null;\n    }\n    const node = marker();\n    node.dataset.status = status;\n    node.dataset.mode = \"native-form\";\n    node.dataset.detail = detail || \"\";\n    node.dataset.headline = headline || \"\";\n    node.dataset.primary = primary || \"\";\n    node.dataset.viewport = window.innerWidth <= 640 ? \"mobile\" : \"desktop\";\n    window.setTimeout(function () {\n      try {\n        window.stop();\n      } catch (_error) {}\n    }, 0);\n  }\n\n  function installModalGuards() {\n    const noop = function () {};\n    const approve = function () { return true; };\n    const empty = function () { return \"\"; };\n    try { window.alert = noop; } catch (_error) {}\n    try { window.confirm = approve; } catch (_error) {}\n    try { window.prompt = empty; } catch (_error) {}\n  }\n\n  function triggerAction(form, action) {\n    try {\n      if (typeof form.requestSubmit === \"function\") {\n        form.requestSubmit(action || undefined);\n        return;\n      }\n    } catch (_error) {}\n    if (action && typeof action.click === \"function\") {\n      action.click();\n      return;\n    }\n    form.dispatchEvent(new Event(\"submit\", { bubbles: true, cancelable: true }));\n  }\n\n  function inspectResult(before, attemptsLeft) {\n    const result = findResult();\n    if (!result) {\n      stamp(\"fail\", \"La zone de resultat est introuvable.\", \"\");\n      return;\n    }\n    const after = resultSignature(result);\n    const text = normalize(result.textContent);\n    if (after && after !== before && text.length >= 24) {\n      const primary = result.querySelector(\"a[href], button[data-href], [data-primary-url]\") || document.querySelector(\"#tool-result a[href]\");\n      stamp(\"pass\", \"Le formulaire natif a mis a jour la zone de resultat.\", resultHeadline(result), primary ? (primary.getAttribute(\"href\") || primary.getAttribute(\"data-primary-url\") || \"\") : \"\");\n      return;\n    }\n    if (attemptsLeft > 0) {\n      window.setTimeout(function () {\n        inspectResult(before, attemptsLeft - 1);\n      }, 250);\n      return;\n    }\n    stamp(\"fail\", \"La zone de resultat n'a pas renvoye de contenu exploitable.\", resultHeadline(result));\n  }\n\n  function runSmoke() {\n    const params = new URLSearchParams(window.location.search);\n    if (params.get(\"__qa\") !== \"functional\") return;\n    qaWatchdog = window.setTimeout(function () {\n      stamp(\"fail\", \"QA smoke timed out before the page reported a usable result.\", \"\");\n    }, 7000);\n    const form = findForm();\n    if (!form) {\n      stamp(\"fail\", \"Le formulaire principal est introuvable.\", \"\");\n      return;\n    }\n    const result = findResult();\n    const before = resultSignature(result);\n    installModalGuards();\n    try {\n      form.querySelectorAll(\"input, select, textarea\").forEach(applySample);\n    } catch (error) {\n      stamp(\"fail\", error && error.message ? `QA smoke sample failed: ${error.message}` : \"QA smoke sample failed before submit.\", \"\");\n      return;\n    }\n    const action = primaryAction(form);\n    try {\n      triggerAction(form, action);\n    } catch (error) {\n      stamp(\"fail\", error && error.message ? `QA smoke submit failed: ${error.message}` : \"QA smoke submit failed.\", \"\");\n      return;\n    }\n    inspectResult(before, 10);\n  }\n\n  window.addEventListener(\"error\", function (event) {\n    const message = event && event.message ? event.message : \"JavaScript runtime error during QA smoke.\";\n    stamp(\"fail\", `QA smoke JS error: ${message}`, \"\");\n  }, { once: true });\n\n  window.addEventListener(\"unhandledrejection\", function (event) {\n    const reason = event && event.reason;\n    const detail = typeof reason === \"string\"\n      ? reason\n      : reason && reason.message\n        ? reason.message\n        : \"Unhandled promise rejection during QA smoke.\";\n    stamp(\"fail\", `QA smoke rejection: ${detail}`, \"\");\n  }, { once: true });\n\n  if (document.readyState === \"loading\") {\n    document.addEventListener(\"DOMContentLoaded\", function () {\n      window.setTimeout(runSmoke, 60);\n    }, { once: true });\n  } else {\n    window.setTimeout(runSmoke, 60);\n  }\n})();\n</script>\n</body>\n</html>",
+    "generation_mode": "direct_html"
+  }
+}
