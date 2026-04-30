@@ -1,0 +1,709 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Outil d&#x27;Analyse de Sensibilité des Prix pour Collections d&#x27;Art | Simulez Votre Stratégie</title>
+    <meta name="description" content="Évaluez l">
+    <style>
+        :root {
+            --color-text: #2c2c2e;
+            --color-background: #f9f9f9;
+            --color-primary: #a87e5b;
+            --color-secondary: #e8e8e8;
+            --color-accent: #6f513d;
+            --font-family-serif: 'Georgia', serif;
+            --font-family-sans: 'Helvetica Neue', sans-serif;
+            --spacing-unit: 1rem;
+        }
+
+        body {
+            font-family: var(--font-family-sans);
+            color: var(--color-text);
+            background: linear-gradient(135deg, var(--color-background) 0%, #ffffff 100%);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            padding: calc(2 * var(--spacing-unit));
+            box-sizing: border-box;
+        }
+
+        header {
+            text-align: center;
+            padding: calc(4 * var(--spacing-unit)) 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        h1 {
+            font-family: var(--font-family-serif);
+            font-size: 3.5rem;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-unit);
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+            line-height: 1.1;
+        }
+
+        header p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            color: var(--color-accent);
+        }
+
+        .tool-section {
+            background-color: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: calc(3 * var(--spacing-unit));
+            margin-top: calc(3 * var(--spacing-unit));
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: calc(2 * var(--spacing-unit));
+        }
+
+        @media (min-width: 768px) {
+            .tool-section {
+                grid-template-columns: 1fr 1.5fr;
+            }
+        }
+
+        .input-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: bold;
+            color: var(--color-text);
+        }
+
+        .input-group input[type="number"],
+        .input-group select {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid var(--color-secondary);
+            border-radius: 8px;
+            font-size: 1rem;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+        }
+
+        .input-group input[type="number"]:focus,
+        .input-group select:focus {
+            outline: none;
+            border-color: var(--color-primary);
+            box-shadow: 0 0 0 2px rgba(168, 126, 91, 0.2);
+        }
+
+        button#tool-submit {
+            background-color: var(--color-primary);
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            width: 100%;
+            margin-top: calc(1.5 * var(--spacing-unit));
+            box-shadow: 0 4px 15px rgba(168, 126, 91, 0.3);
+        }
+
+        button#tool-submit:hover {
+            background-color: var(--color-accent);
+            transform: translateY(-2px);
+        }
+
+        #tool-result {
+            background-color: var(--color-background);
+            border-radius: 8px;
+            padding: calc(1.5 * var(--spacing-unit));
+            min-height: 200px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+            border: 1px solid var(--color-secondary);
+            overflow-x: auto;
+        }
+        #tool-result h3 {
+            color: var(--color-primary);
+            margin-top: 0;
+            margin-bottom: 1rem;
+            font-family: var(--font-family-serif);
+            font-size: 1.5rem;
+        }
+        #tool-result p {
+            margin-bottom: 0.5rem;
+            font-size: 1rem;
+        }
+        #tool-result strong {
+            color: var(--color-accent);
+        }
+        .section-title {
+            text-align: center;
+            font-family: var(--font-family-serif);
+            font-size: 2.2rem;
+            color: var(--color-primary);
+            margin-top: calc(4 * var(--spacing-unit));
+            margin-bottom: calc(2 * var(--spacing-unit));
+        }
+
+        .headline-variants {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: calc(1.5 * var(--spacing-unit));
+            margin-top: calc(3 * var(--spacing-unit));
+        }
+
+        .variant-card {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            padding: calc(1.5 * var(--spacing-unit));
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .variant-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        .variant-card h4 {
+            font-family: var(--font-family-serif);
+            color: var(--color-accent);
+            margin-top: 0;
+            margin-bottom: var(--spacing-unit);
+            font-size: 1.3rem;
+        }
+
+        .variant-card ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .variant-card li {
+            margin-bottom: 0.75rem;
+            color: var(--color-text);
+            font-size: 0.95rem;
+        }
+        .cta-section {
+            text-align: center;
+            margin-top: calc(4 * var(--spacing-unit));
+            padding: calc(3 * var(--spacing-unit));
+            background: linear-gradient(45deg, #f0e8e0, #f8f0e8);
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.06);
+        }
+        .cta-section h3 {
+            font-family: var(--font-family-serif);
+            font-size: 2rem;
+            color: var(--color-primary);
+            margin-bottom: var(--spacing-unit);
+        }
+        .cta-section p {
+            font-size: 1.1rem;
+            color: var(--color-text);
+            max-width: 700px;
+            margin: 0 auto calc(2 * var(--spacing-unit)) auto;
+        }
+        .cta-button {
+            background-color: var(--color-accent);
+            color: white;
+            padding: 1rem 2.5rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.15rem;
+            cursor: pointer;
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 15px rgba(111, 81, 61, 0.3);
+            text-decoration: none;
+            display: inline-block;
+        }
+        .cta-button:hover {
+            background-color: #5a4232;
+            transform: translateY(-2px);
+        }
+
+        .seo-section {
+            background-color: #f0f0f0;
+            padding: calc(3 * var(--spacing-unit));
+            margin-top: calc(5 * var(--spacing-unit));
+            border-radius: 12px;
+            color: #555;
+            font-size: 0.9rem;
+            line-height: 1.8;
+            border-top: 1px solid var(--color-secondary);
+        }
+        .seo-section h3 {
+            font-family: var(--font-family-sans);
+            font-size: 1.4rem;
+            color: var(--color-text);
+            margin-bottom: var(--spacing-unit);
+        }
+        .seo-section a {
+            color: var(--color-accent);
+            text-decoration: none;
+        }
+        .seo-section a:hover {
+            text-decoration: underline;
+        }
+    </style>
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://outil-d-analyse-de-sensibilite-des-prix-pour-co-80b44a5d.onrender.com">
+    <meta property="og:title" content="Outil d&#x27;Analyse de Sensibilité des Prix pour Collections d&#x27;Art">
+    <meta property="og:description" content="Évaluez l">
+    <meta property="og:url" content="https://outil-d-analyse-de-sensibilite-des-prix-pour-co-80b44a5d.onrender.com">
+    <meta property="og:type" content="website">
+    <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Outil d'Analyse de Sensibilité des Prix pour Collections d'Art", "description": "Évaluez l", "url": "https://outil-d-analyse-de-sensibilite-des-prix-pour-co-80b44a5d.onrender.com", "applicationCategory": "UtilityApplication", "operatingSystem": "Web Browser"}</script>
+</head>
+<body data-site-slug="outil-d-analyse-de-sensibilite-des-prix-pour-co-80b44a5d" data-runtime-mode="analysis_tool">
+    <div class="container">
+        <header>
+            <h1>Optimisation Stratégique des Prix pour l'Art</h1>
+            <p>Découvrez la dynamique du marché pour vos œuvres uniques et collections limitées. Notre outil modélise l'impact des variations de prix sur la demande et vos revenus.</p>
+        </header>
+
+        <section class="tool-section">
+            <form id="tool-form">
+                <h2>Simulez Votre Stratégie</h2>
+                <div class="input-group">
+                    <label for="prixActuel">Prix Actuel de l'Œuvre (€)</label>
+                    <input type="number" id="prixActuel" value="10000" min="100" required>
+                </div>
+                <div class="input-group">
+                    <label for="quantiteVendue">Quantité Vendue à ce Prix</label>
+                    <input type="number" id="quantiteVendue" value="5" min="1" required>
+                </div>
+                <div class="input-group">
+                    <label for="elasticiteDemande">Élasticité de la Demande</label>
+                    <select id="elasticiteDemande">
+                        <option value="-0.5">Faible (-0.5)</option>
+                        <option value="-1.0" selected>Modérée (-1.0)</option>
+                        <option value="-2.0">Élevée (-2.0)</option>
+                        <option value="-0.2">Très Faible (-0.2)</option>
+                        <option value="-3.0">Très Élevée (-3.0)</option>
+                    </select>
+                </div>
+                <div class="input-group">
+                    <label for="variationPrix">Variation de Prix à Simuler (%)</label>
+                    <input type="number" id="variationPrix" value="10" min="-90" max="200" required>
+                </div>
+                <button type="submit" id="tool-submit">Analyser l'Impact</button>
+            </form>
+
+            <div id="tool-result">
+                <h3 id="result-headline">Résultats de la Simulation</h3>
+                <p>Modélisation en attente de vos paramètres. Entrez les données de votre œuvre pour évaluer les dynamiques de marché potentielles.</p>
+            </div>
+        </section>
+
+        <section class="cta-section">
+            <h3>Une vision claire pour vos collections.</h3>
+            <p>Notre expertise vous accompagne au-delà des chiffres. Contactez nos spécialistes pour une analyse approfondie et des recommandations sur mesure pour votre marché spécifique.</p>
+            <a href="#" class="cta-button" data-affiliate-slot="contact-specialist">Demander un diagnostic personnalisé</a>
+        </section>
+
+        <section class="headline-variants">
+            <h2 class="section-title">Idées de Titres percutants</h2>
+            <div class="variant-card">
+                <h4>SEO & Référencement</h4>
+                <ul>
+                    <li>Analyse Sensibilité Prix Art: Optimiser Vos Ventes en Galerie</li>
+                    <li>Outil Simulation Prix Collections d'Art: Maximiser Vos Revenus</li>
+                    <li>Stratégie Prix Œuvres Uniques: Évaluation Impact Demande</li>
+                    <li>Conseils Prix Marché de l'Art: Galeries & Maisons de Vente</li>
+                    <li>Comment Fixer le Prix d'une Œuvre d'Art: Guide Pratique</li>
+                </ul>
+            </div>
+            <div class="variant-card">
+                <h4>Clickbait & Intrigue</h4>
+                <ul>
+                    <li>Le Secret pour Multiplier la Valeur de Votre Collection d'Art ?</li>
+                    <li>Votre Stratégie de Prix vous Fait-elle Perdre Gros ? Découvrez-le !</li>
+                    <li>Révélé : L'Erreur de Prix que Tous les Collectionneurs Font !</li>
+                    <li>Et si une Simple Modification Révolutionnait Vos Ventes d'Art ?</li>
+                    <li>Ce Calcul Simple Peut Doubler Vos Gains sur le Marché de l'Art !</li>
+                </ul>
+            </div>
+            <div class="variant-card">
+                <h4>Expert & Autorité</h4>
+                <ul>
+                    <li>Modélisation Économétrique des Prix de l'Art: Une Approche Fine</li>
+                    <li>Optimisation des Revenus en Galerie : Analyse de l'Élasticité Prix</li>
+                    <li>Déterminer le Point d'Équilibre Optimal pour Vos Œuvres Rares</li>
+                    <li>Prospective des Prix du Marché de l'Art : Outil Décisionnel</li>
+                    <li>Les Fondamentaux d'une Politique Tarifaire Réussie pour l'Art</li>
+                </ul>
+            </div>
+            <div class="variant-card">
+                <h4>Soft & Accompagnant</h4>
+                <ul>
+                    <li>Trouvez le Juste Prix pour Vos Trésors Artistiques</li>
+                    <li>Affinez Votre Stratégie de Prix avec Confiance et Précision</li>
+                    <li>Comprendre l'Influence du Prix sur l'Attrait de Vos Œuvres</li>
+                    <li>Un Guide Doux pour Évaluer Vos Collections en Toute Sérénité</li>
+                    <li>Harmonisez Prix et Demande : L'Art de la Valorisation</li>
+                </ul>
+            </div>
+            <div class="variant-card">
+                <h4>Commercial & Incitatif</h4>
+                <ul>
+                    <li>Augmentez Vos Marges : Notre Outil Révèle Votre Potentiel de Prix</li>
+                    <li>Vendez Plus, Vendez Mieux : Simulez l'Impact de Vos Prix</li>
+                    <li>Maxime la Rentabilité de Chaque Œuvre avec Notre Simulateur</li>
+                    <li>Déverrouillez le Potentiel Commercial de Votre Art dès Aujourd'hui</li>
+                    <li>Transformez Vos Prix en Levier de Croissance : Essayez Notre Outil</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="seo-section">
+            <h3>Optimisation des Prix dans le Marché de l'Art : Guide pour Galeries et Collectionneurs</h3>
+            <p>Naviguer dans les complexités du marché de l'art exige une compréhension approfondie de la <a href="#">stratégie de prix</a>. Que vous soyez une <a href="#">galerie d'art</a> cherchant à maximiser les ventes, une <a href="#">maison de vente aux enchères</a> planifiant une nouvelle collection, ou un <a href="#">collectionneur d'art</a> souhaitant valoriser au mieux ses actifs, la détermination du prix est cruciale. Notre <a href="#">outil d'analyse de sensibilité des prix</a> est conçu spécifiquement pour le secteur de l'art, vous permettant d'évaluer l'impact des <a href="#">variations de prix</a> sur la <a href="#">demande</a> et les <a href="#">revenus</a>. Comprendre l'élasticité de la demande pour des <a href="#">œuvres d'art uniques</a> ou des <a href="#">collections limitées</a> n'a jamais été aussi accessible. Utilisez notre simulateur pour modéliser des scénarios, affiner votre <a href="#">politique tarifaire</a> et prendre des décisions éclairées pour <a href="#">optimiser vos revenus artistiques</a>. De la <a href="#">fixation du prix d'une œuvre</a> à la <a href="#">valorisation de collections</a> entières, cet outil offre une perspective précieuse pour les professionnels du marché de l'art français.</p>
+        </section>
+    </div>
+
+    <script>
+        document.getElementById('tool-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+
+            const prixActuel = parseFloat(document.getElementById('prixActuel').value);
+            const quantiteVendue = parseFloat(document.getElementById('quantiteVendue').value);
+            const elasticiteDemande = parseFloat(document.getElementById('elasticiteDemande').value);
+            const variationPrixPourcentage = parseFloat(document.getElementById('variationPrix').value);
+
+            if (isNaN(prixActuel) || isNaN(quantiteVendue) || isNaN(elasticiteDemande) || isNaN(variationPrixPourcentage)) {
+                document.getElementById('tool-result').innerHTML = "<h3>Erreur</h3><p>Veuillez entrer des valeurs numériques valides pour tous les champs.</p>";
+                return;
+            }
+
+            const variationPrixDecimale = variationPrixPourcentage / 100;
+            const nouveauPrix = prixActuel * (1 + variationPrixDecimale);
+
+            // Calcul de la variation de la demande en pourcentage
+            // % changement de la demande = Élasticité * % changement du prix
+            const pourcentageChangementDemande = elasticiteDemande * variationPrixDecimale;
+
+            // Nouvelle quantité vendue
+            const nouvelleQuantiteVendue = quantiteVendue * (1 + pourcentageChangementDemande);
+
+            // Calcul des revenus initiaux
+            const revenusActuels = prixActuel * quantiteVendue;
+
+            // Calcul des nouveaux revenus
+            const nouveauxRevenus = nouveauPrix * nouvelleQuantiteVendue;
+
+            let resultHTML = `<h3>Résultats de la Simulation</h3>`;
+            resultHTML += `<p><strong>Prix Actuel :</strong> ${prixActuel.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })}</p>`;
+            resultHTML += `<p><strong>Quantité Vendue Actuelle :</strong> ${quantiteVendue.toFixed(0)} unités</p>`;
+            resultHTML += `<p><strong>Revenus Actuels :</strong> ${revenusActuels.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })}</p>`;
+            resultHTML += `<hr style="border: none; border-top: 1px dashed var(--color-secondary); margin: 1rem 0;">`;
+            resultHTML += `<p><strong>Variation de Prix Appliquée :</strong> ${variationPrixPourcentage.toFixed(1)}%</p>`;
+            resultHTML += `<p><strong>Nouveau Prix de l'Œuvre :</strong> ${nouveauPrix.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })}</p>`;
+            resultHTML += `<p><strong>Changement Est. Demande :</strong> ${Math.round(pourcentageChangementDemande * 100).toLocaleString('fr-FR')}%</p>`;
+            resultHTML += `<p><strong>Nouvelle Quantité Vendue Est. :</strong> ${Math.max(0, nouvelleQuantiteVendue).toFixed(2)} unités</p>`;
+            resultHTML += `<p><strong>Nouveaux Revenus Est. :</strong> ${Math.max(0, nouveauxRevenus).toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })}</p>`;
+
+            const diffRevenus = nouveauxRevenus - revenusActuels;
+            const percentageDiffRevenus = (diffRevenus / revenusActuels) * 100;
+
+            resultHTML += `<hr style="border: none; border-top: 1px solid var(--color-primary); margin: 1.5rem 0;">`;
+            resultHTML += `<p><strong>Impact Net sur les Revenus :</strong> <span style="color: ${diffRevenus >= 0 ? 'green' : 'red'}; font-weight: bold;">${diffRevenus.toLocaleString('fr-FR', { style: 'currency', currency: 'EUR' })} (${percentageDiffRevenus.toFixed(2)}%)</span></p>`;
+
+            document.getElementById('tool-result').innerHTML = resultHTML;
+        });
+    </script>
+<div id="qa-smoke-result" hidden></div>
+<script id="farmbuilder-affiliate-helper">
+(function () {
+  window.__UTILITY_AFFILIATE_MAP = window.__UTILITY_AFFILIATE_MAP || {};
+  document.addEventListener("click", function (event) {
+    const target = event.target.closest("[data-affiliate-slot]");
+    if (!target) return;
+    const slot = target.getAttribute("data-affiliate-slot");
+    const href = window.__UTILITY_AFFILIATE_MAP[slot];
+    if (!href) return;
+    if (target.tagName && target.tagName.toLowerCase() === "a") {
+      target.setAttribute("href", href);
+      target.setAttribute("rel", "nofollow sponsored noopener noreferrer");
+      return;
+    }
+    event.preventDefault();
+    window.open(href, "_blank", "noopener");
+  }, true);
+})();
+</script>
+<script id="farmbuilder-functional-qa">
+(function () {
+  function marker() {
+    let node = document.getElementById("qa-smoke-result");
+    if (node) return node;
+    node = document.createElement("div");
+    node.id = "qa-smoke-result";
+    node.hidden = true;
+    document.body.appendChild(node);
+    return node;
+  }
+
+  let qaFinished = false;
+  let qaWatchdog = null;
+
+  function normalize(text) {
+    return String(text || "").replace(/\s+/g, " ").trim();
+  }
+
+  function findForm() {
+    return document.getElementById("tool-form") || document.querySelector("form");
+  }
+
+  function findResult() {
+    return (
+      document.getElementById("tool-result") ||
+      document.querySelector("[data-result]") ||
+      document.querySelector(".tool-result, .result-card, .result, .results, .output, .preview, .diagnostic, .analysis")
+    );
+  }
+
+  function primaryAction(form) {
+    if (!form) return null;
+    return (
+      document.getElementById("tool-submit") ||
+      form.querySelector("#tool-submit") ||
+      form.querySelector("[data-primary-action]") ||
+      form.querySelector("button[type=submit]") ||
+      form.querySelector("button") ||
+      form.querySelector("input[type=submit]")
+    );
+  }
+
+  function resultSignature(node) {
+    if (!node) return "";
+    const text = normalize(node.textContent);
+    const html = normalize(node.innerHTML).slice(0, 600);
+    return `${text}||${html}`;
+  }
+
+  function resultHeadline(node) {
+    if (!node) return "";
+    const heading = node.querySelector("h1, h2, h3, strong, b");
+    return normalize(heading ? heading.textContent : "");
+  }
+
+  function sampleText(field) {
+    const key = `${field.id || ""} ${field.name || ""} ${field.placeholder || ""}`.toLowerCase();
+    if (/email/.test(key)) return "bonjour@example.com";
+    if (/url|site|website|lien/.test(key)) return "https://example.com/offre-solaire";
+    if (/phone|tel|mobile/.test(key)) return "0612345678";
+    if (/ville|city|localisation|location|region|departement|postal/.test(key)) return "Paris";
+    if (/orientation/.test(key)) return "sud";
+    if (/keyword|theme|topic|sujet|subject/.test(key)) return "energie solaire domestique";
+    if (/titre|title/.test(key)) return "Simulateur solaire maison";
+    if (/nom|name|project/.test(key)) return "Projet Horizon";
+    if (/description|notes|content|message/.test(key)) return "Maison individuelle exposee sud avec toiture exploitable.";
+    return field.placeholder || "France";
+  }
+
+  function sampleNumber(field) {
+    const key = `${field.id || ""} ${field.name || ""}`.toLowerCase();
+    if (/inclinaison|angle|slope/.test(key)) return "30";
+    if (/surface|size|m2|sqm/.test(key)) return "28";
+    if (/annee|year/.test(key)) return "2024";
+    if (/prix|price|budget|cost|amount|montant/.test(key)) return "12000";
+    const min = Number(field.min || "");
+    const max = Number(field.max || "");
+    if (Number.isFinite(min) && Number.isFinite(max) && max >= min) {
+      return String(Math.min(max, Math.max(min, min + Math.round((max - min) * 0.35))));
+    }
+    if (Number.isFinite(min)) return String(Math.max(min, 12));
+    if (Number.isFinite(max)) return String(Math.min(max, 12));
+    return field.value || "12";
+  }
+
+  function applySample(field) {
+    const tag = (field.tagName || "").toLowerCase();
+    const type = (field.type || "").toLowerCase();
+    if (field.disabled) return;
+    if (type === "hidden" || type === "submit" || type === "button" || type === "reset" || type === "image" || type === "file") {
+      return;
+    }
+    const currentValue = normalize(field.value);
+    if (tag === "select") {
+      if (currentValue) return;
+      const option = Array.from(field.options || []).find((item) => item.value && !item.disabled) || field.options[0];
+      if (option) field.value = option.value;
+      return;
+    }
+    if (type === "checkbox") {
+      if (field.checked) return;
+      field.checked = true;
+      return;
+    }
+    if (type === "radio") {
+      if (field.checked) return;
+      field.checked = true;
+      return;
+    }
+    if (type === "date") {
+      if (currentValue) return;
+      field.value = "2026-03-01";
+      return;
+    }
+    if (type === "email") {
+      if (currentValue) return;
+      field.value = "bonjour@example.com";
+      return;
+    }
+    if (type === "url") {
+      if (currentValue) return;
+      field.value = "https://example.com/offre-solaire";
+      return;
+    }
+    if (type === "tel") {
+      if (currentValue) return;
+      field.value = "0612345678";
+      return;
+    }
+    if (type === "color") {
+      if (currentValue) return;
+      field.value = "#2f855a";
+      return;
+    }
+    if (type === "number" || type === "range") {
+      if (currentValue) return;
+      field.value = sampleNumber(field);
+      return;
+    }
+    if (currentValue) return;
+    field.value = sampleText(field);
+  }
+
+  function stamp(status, detail, headline, primary) {
+    if (qaFinished) return;
+    qaFinished = true;
+    if (qaWatchdog) {
+      window.clearTimeout(qaWatchdog);
+      qaWatchdog = null;
+    }
+    const node = marker();
+    node.dataset.status = status;
+    node.dataset.mode = "native-form";
+    node.dataset.detail = detail || "";
+    node.dataset.headline = headline || "";
+    node.dataset.primary = primary || "";
+    node.dataset.viewport = window.innerWidth <= 640 ? "mobile" : "desktop";
+    window.setTimeout(function () {
+      try {
+        window.stop();
+      } catch (_error) {}
+    }, 0);
+  }
+
+  function installModalGuards() {
+    const noop = function () {};
+    const approve = function () { return true; };
+    const empty = function () { return ""; };
+    try { window.alert = noop; } catch (_error) {}
+    try { window.confirm = approve; } catch (_error) {}
+    try { window.prompt = empty; } catch (_error) {}
+  }
+
+  function triggerAction(form, action) {
+    try {
+      if (typeof form.requestSubmit === "function") {
+        form.requestSubmit(action || undefined);
+        return;
+      }
+    } catch (_error) {}
+    if (action && typeof action.click === "function") {
+      action.click();
+      return;
+    }
+    form.dispatchEvent(new Event("submit", { bubbles: true, cancelable: true }));
+  }
+
+  function inspectResult(before, attemptsLeft) {
+    const result = findResult();
+    if (!result) {
+      stamp("fail", "La zone de resultat est introuvable.", "");
+      return;
+    }
+    const after = resultSignature(result);
+    const text = normalize(result.textContent);
+    if (after && after !== before && text.length >= 24) {
+      const primary = result.querySelector("a[href], button[data-href], [data-primary-url]") || document.querySelector("#tool-result a[href]");
+      stamp("pass", "Le formulaire natif a mis a jour la zone de resultat.", resultHeadline(result), primary ? (primary.getAttribute("href") || primary.getAttribute("data-primary-url") || "") : "");
+      return;
+    }
+    if (attemptsLeft > 0) {
+      window.setTimeout(function () {
+        inspectResult(before, attemptsLeft - 1);
+      }, 250);
+      return;
+    }
+    stamp("fail", "La zone de resultat n'a pas renvoye de contenu exploitable.", resultHeadline(result));
+  }
+
+  function runSmoke() {
+    const params = new URLSearchParams(window.location.search);
+    if (params.get("__qa") !== "functional") return;
+    qaWatchdog = window.setTimeout(function () {
+      stamp("fail", "QA smoke timed out before the page reported a usable result.", "");
+    }, 7000);
+    const form = findForm();
+    if (!form) {
+      stamp("fail", "Le formulaire principal est introuvable.", "");
+      return;
+    }
+    const result = findResult();
+    const before = resultSignature(result);
+    installModalGuards();
+    try {
+      form.querySelectorAll("input, select, textarea").forEach(applySample);
+    } catch (error) {
+      stamp("fail", error && error.message ? `QA smoke sample failed: ${error.message}` : "QA smoke sample failed before submit.", "");
+      return;
+    }
+    const action = primaryAction(form);
+    try {
+      triggerAction(form, action);
+    } catch (error) {
+      stamp("fail", error && error.message ? `QA smoke submit failed: ${error.message}` : "QA smoke submit failed.", "");
+      return;
+    }
+    inspectResult(before, 10);
+  }
+
+  window.addEventListener("error", function (event) {
+    const message = event && event.message ? event.message : "JavaScript runtime error during QA smoke.";
+    stamp("fail", `QA smoke JS error: ${message}`, "");
+  }, { once: true });
+
+  window.addEventListener("unhandledrejection", function (event) {
+    const reason = event && event.reason;
+    const detail = typeof reason === "string"
+      ? reason
+      : reason && reason.message
+        ? reason.message
+        : "Unhandled promise rejection during QA smoke.";
+    stamp("fail", `QA smoke rejection: ${detail}`, "");
+  }, { once: true });
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", function () {
+      window.setTimeout(runSmoke, 60);
+    }, { once: true });
+  } else {
+    window.setTimeout(runSmoke, 60);
+  }
+})();
+</script>
+</body>
+</html>
